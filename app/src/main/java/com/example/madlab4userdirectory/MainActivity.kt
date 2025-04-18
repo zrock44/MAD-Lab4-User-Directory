@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -19,9 +18,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.madlab4userdirectory.data.User
+import com.example.madlab4userdirectory.model.User
 import com.example.madlab4userdirectory.ui.theme.MADLab4UserDirectoryTheme
 
 class MainActivity : ComponentActivity() {
@@ -69,7 +69,10 @@ fun UserCard(user: User, modifier: Modifier = Modifier) {
             Text(user.image, Modifier.align(Alignment.CenterVertically))
             Spacer(Modifier.size(30.dp))
             Column() {
-                Text("${user.title} ${user.firstName} ${user.lastName}")
+                Text(
+                    text = "${user.title}. ${user.first} ${user.last}",
+                    fontWeight = FontWeight.Bold
+                )
                 Text(user.email)
             }
         }
