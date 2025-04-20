@@ -3,8 +3,10 @@ package com.example.madlab4userdirectory.ui
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -21,9 +23,11 @@ fun UserDirectoryApp(
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
-                title = {
-                    Text(stringResource(R.string.top_bar))
-                }
+                title = { Text(stringResource(R.string.top_bar)) },
+                colors = TopAppBarDefaults.topAppBarColors(
+                    containerColor = MaterialTheme.colorScheme.primary,
+                    titleContentColor = MaterialTheme.colorScheme.onPrimary
+                )
             )
         }
     ) { innerPadding ->

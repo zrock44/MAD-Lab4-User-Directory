@@ -1,5 +1,5 @@
 # Mobile Application Development Lab #4 - User Directory Application
-
+This application pulls a list of 20 random users from https://randomuser.me/api/?results=20 and displays their picture, title, first and last name, and email.
 
 # Installation
 To run this application:
