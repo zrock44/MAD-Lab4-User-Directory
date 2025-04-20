@@ -49,10 +49,12 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+
+    // It wants me to do it the new way but I'm not sure if you can set specific versions that way,
+    // so I'm doing it the old way.
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.11.0")
-//    implementation(libs.retrofit)
-//    implementation(libs.retrofit2.converter.gson)
+    implementation("io.coil-kt:coil-compose:2.7.0")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

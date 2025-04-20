@@ -43,7 +43,7 @@ data class Info(
     val version: String
 )
 
-data class ApiResponse(
+data class UserApiResponse(
     @SerializedName("results")
     val results: List<User>,
     @SerializedName("info")

@@ -11,12 +11,13 @@ import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.madlab4userdirectory.UserDirectoryApplication
 import com.example.madlab4userdirectory.data.UserRepository
+import com.example.madlab4userdirectory.model.UserApiResponse
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 import java.io.IOException
 
 sealed interface UserUiState {
-    data class Success(val users: String) : UserUiState
+    data class Success(val users: UserApiResponse) : UserUiState
     object Error : UserUiState
     object Loading : UserUiState
 }
@@ -33,10 +34,7 @@ class UserViewModel(private val userRepository: UserRepository) : ViewModel() {
         viewModelScope.launch {
             userUiState = UserUiState.Loading
             userUiState = try {
-                val listResult = userRepository.getRandomUsers()
-                UserUiState.Success(
-                    "Success: ${listResult.size} users retrieved."
-                )
+                UserUiState.Success(userRepository.getRandomUsers())
             } catch (e: IOException) {
                 UserUiState.Error
             } catch (e:HttpException) {
