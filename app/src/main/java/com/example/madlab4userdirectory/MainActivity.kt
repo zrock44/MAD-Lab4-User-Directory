@@ -22,6 +22,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.madlab4userdirectory.model.User
+import com.example.madlab4userdirectory.ui.UserDirectoryApp
 import com.example.madlab4userdirectory.ui.theme.MADLab4UserDirectoryTheme
 
 class MainActivity : ComponentActivity() {
@@ -30,50 +31,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             MADLab4UserDirectoryTheme {
-                DirectoryApp()
-            }
-        }
-    }
-}
-
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun DirectoryApp(modifier: Modifier = Modifier) {
-    Scaffold(
-        topBar = {
-            CenterAlignedTopAppBar(
-                title = {
-                    Text("User Directory")
-                }
-            )
-        }
-    ) { innerPadding ->
-        DirectoryContent(modifier = modifier.padding(innerPadding))
-    }
-}
-
-@Composable
-fun DirectoryContent(modifier: Modifier = Modifier) {
-    UserList(modifier = modifier)
-}
-
-@Composable
-fun UserList(modifier: Modifier = Modifier) {
-    UserCard(User(), modifier = modifier)
-}
-
-@Composable
-fun UserCard(user: User, modifier: Modifier = Modifier) {
-    Card(modifier = modifier.fillMaxWidth()) {
-        Row(modifier = Modifier.padding(8.dp)) {
-            Text(user.image, Modifier.align(Alignment.CenterVertically))
-            Spacer(Modifier.size(30.dp))
-            Column() {
-                Text(
-                    text = "${user.title}. ${user.first} ${user.last}",
-                    fontWeight = FontWeight.Bold
-                )
-                Text(user.email)
+                UserDirectoryApp()
             }
         }
     }
@@ -83,6 +41,6 @@ fun UserCard(user: User, modifier: Modifier = Modifier) {
 @Composable
 fun DirectoryPreview() {
     MADLab4UserDirectoryTheme {
-        DirectoryApp()
+        UserDirectoryApp()
     }
 }

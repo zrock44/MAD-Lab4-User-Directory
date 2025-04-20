@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MAD Lab 4 User Directory</string>
+    <string name="top_bar">User Directory</string>
 </resources>
