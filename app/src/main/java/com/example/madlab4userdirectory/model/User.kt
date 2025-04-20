@@ -10,12 +10,12 @@ data class User(
     @SerializedName("name")
     val name: Name,
     @SerializedName("email")
-    val email: String = "jimmy@jumpboots.org"
+    val email: String
 )
 
 data class Login(
     @SerializedName("uuid")
-    val uuid: String = "453"
+    val uuid: String
 )
 
 data class Picture(
@@ -29,11 +29,11 @@ data class Picture(
 
 data class Name(
     @SerializedName("title")
-    val title: String = "Mr",
+    val title: String,
     @SerializedName("first")
-    val first: String = "Jumpboots",
+    val first: String,
     @SerializedName("last")
-    val last: String = "Jimmy"
+    val last: String
 )
 
 data class Info(
@@ -49,3 +49,43 @@ data class UserApiResponse(
     @SerializedName("info")
     val info: Info
 )
+
+fun createMockUserList(
+    listSize: Int,
+    title: String = "Mr",
+    firstName: String = "Jumpboots",
+    lastName: String = "Jimmy",
+    uuid: String = "104",
+    email: String = "jimmy@jumpboots.org",
+    version: String = "1.04"
+): UserApiResponse {
+    val mockName = Name(
+        title = title,
+        first = firstName,
+        last = lastName
+    )
+    val mockPicture = Picture(
+        large = "",
+        medium = "",
+        thumbnail = ""
+    )
+    val mockLogin = Login(
+        uuid = uuid
+    )
+    val mockUser = User(
+        login = mockLogin,
+        picture = mockPicture,
+        name = mockName,
+        email = email
+    )
+    val mockInfo = Info(
+        userCount = listSize.toString(),
+        version = version
+    )
+
+    val mockUsers = UserApiResponse(
+        results = List(listSize) { mockUser },
+        info = mockInfo
+    )
+    return mockUsers
+}

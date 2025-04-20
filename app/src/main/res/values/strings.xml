@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">MAD Lab 4 User Directory</string>
     <string name="top_bar">User Directory</string>
+    <string name="user_picture_description">A user\'s profile picture.</string>
 </resources>

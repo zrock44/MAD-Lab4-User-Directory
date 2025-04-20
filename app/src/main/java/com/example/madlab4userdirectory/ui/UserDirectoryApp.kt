@@ -8,13 +8,16 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.madlab4userdirectory.R
 import com.example.madlab4userdirectory.ui.screens.MainScreen
-import com.example.madlab4userdirectory.ui.screens.UserUiState
+import com.example.madlab4userdirectory.ui.screens.UserViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun UserDirectoryApp(modifier: Modifier = Modifier) {
+fun UserDirectoryApp(
+    modifier: Modifier = Modifier
+) {
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
@@ -24,8 +27,10 @@ fun UserDirectoryApp(modifier: Modifier = Modifier) {
             )
         }
     ) { innerPadding ->
+        val userViewModel: UserViewModel = viewModel(factory = UserViewModel.Factory)
         MainScreen(
-            userUiState = ,
+            userUiState = userViewModel.userUiState,
+            retryMethod = userViewModel::getRandomUsers,
             modifier = modifier.padding(innerPadding)
         )
     }
