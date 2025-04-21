@@ -25,8 +25,8 @@ fun UserDirectoryApp(
             CenterAlignedTopAppBar(
                 title = { Text(stringResource(R.string.top_bar)) },
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.primary,
-                    titleContentColor = MaterialTheme.colorScheme.onPrimary
+                    containerColor = MaterialTheme.colorScheme.secondary,
+                    titleContentColor = MaterialTheme.colorScheme.onSecondary
                 )
             )
         }

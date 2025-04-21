@@ -2,4 +2,9 @@
     <string name="app_name">MAD Lab 4 User Directory</string>
     <string name="top_bar">User Directory</string>
     <string name="user_picture_description">A user\'s profile picture.</string>
+    <string name="loading_icon_description">Loading icon.</string>
+    <string name="loading_message">Loading users…</string>
+    <string name="error_icon_description">Error icon.</string>
+    <string name="error_message">An error occurred.</string>
+    <string name="retry_button_text">Retry</string>
 </resources>
